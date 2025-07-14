@@ -1,354 +1,259 @@
-/* ==== COLORS ==== */
-:root {
-  --forest-green: #228B22;
-  --coral: #FF7F50;
-  --sage: #B2AC88;
-  --orange: #FFA500;
-  --light-bg: #F8F6F1;
-  --white: #FFF;
-  --gray: #555;
-  --accent: #e6e9d5;
+body {
+  background-color: #f8faf7; /* very pale, nearly sky blue */
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
 }
 
-/* ==== BODY & CONTAINER ==== */
-body {
-  background: var(--light-bg);
-  color: var(--gray);
-  font-family: 'Segoe UI', 'Arial Rounded MT Bold', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+.header {
+  background: linear-gradient(115deg, #228b22 60%, #cde8d5 100%);
+  padding: 32px 10px 24px 32px;
+  color: #fff;
+}
+
+.header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.3em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header p {
+  margin: 4px 0;
+  font-size: 1.08em;
+  color: #eaf7ef;
 }
 
 .container {
-  max-width: 820px;
+  max-width: 900px;
   margin: 0 auto;
-  background: var(--white);
-  border-radius: 24px;
-  box-shadow: 0 2px 12px rgba(34, 139, 34, 0.10);
-  padding: 0 0 64px 0;
+  padding: 0 16px 40px 16px;
 }
 
-/* ==== HEADER ==== */
-.header {
+.week-tabs {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  padding: 18px 0 12px 0;
+}
+
+.week-tabs a {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 12px;
+  background: #f4f7f2;
+  color: #228b22;
+  font-weight: 600;
+  font-size: 1.08em;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.week-tabs a.active,
+.week-tabs a:focus {
+  background: #228b22;
+  color: #fff;
+}
+
+.week-tabs a:hover {
+  background: #ff7f50;
+  color: #fff;
+}
+
+.progress-section {
+  background: #eaeedc;
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px 0 rgba(34, 139, 34, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-section h3 {
+  color: #666;
+  font-size: 1.22em;
+  margin: 0 0 2px 0;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  padding: 24px;
-  background: linear-gradient(90deg, var(--forest-green) 60%, var(--sage) 100%);
-  border-radius: 24px 24px 0 0;
-  color: var(--white);
-}
-
-.header-content {
-  flex: 1;
-  margin-left: 24px;
-}
-
-.hamburger-btn {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: var(--coral);
-  cursor: pointer;
-}
-
-.desktop-week-nav {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 16px 0;
-}
-
-.week-tab {
-  background: var(--accent);
-  color: var(--forest-green);
-  border-radius: 12px 12px 0 0;
-  padding: 10px 24px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.week-tab.active {
-  background: var(--forest-green);
-  color: var(--white);
-}
-
-/* ==== MOBILE MENU ==== */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 0;
-  height: 100vh;
-  background: rgba(34,139,34,0.92);
-  z-index: 9999;
-  overflow: hidden;
-  transition: width 0.4s;
-}
-.mobile-menu-overlay.show {
-  width: 260px;
-}
-.mobile-menu-content {
-  padding: 24px;
-  color: var(--white);
-}
-.mobile-week-nav .week-link {
-  display: block;
-  color: var(--white);
-  text-decoration: none;
-  padding: 14px 0;
-  font-size: 1.15rem;
-  border-bottom: 1px solid var(--sage);
-}
-.mobile-week-nav .week-link.active {
-  color: var(--coral);
-  font-weight: bold;
-}
-.close-menu {
-  background: none;
-  border: none;
-  color: var(--coral);
-  font-size: 1.6rem;
-  float: right;
-  cursor: pointer;
-}
-
-/* ==== PROGRESS ==== */
-.progress-section {
-  padding: 18px 32px;
-  background: var(--accent);
-  border-radius: 0 0 18px 18px;
-  margin-bottom: 16px;
+  gap: 7px;
 }
 
 .progress-bar {
-  width: 100%;
+  background: #d1cdb0;
+  border-radius: 10px;
   height: 18px;
-  background: var(--sage);
-  border-radius: 9px;
+  width: 100%;
+  position: relative;
   margin-bottom: 6px;
   overflow: hidden;
 }
+
 .progress-fill {
+  background: linear-gradient(90deg, #228b22 70%, #ff7f50 100%);
   height: 100%;
-  background: linear-gradient(90deg, var(--coral), var(--orange));
-  border-radius: 9px 0 0 9px;
-  width: 0%;
-  transition: width 0.3s;
+  width: 0%; /* update via JS */
+  border-radius: 10px;
+  transition: width 0.4s;
 }
 
-/* ==== WEEK/DAY STRUCTURE ==== */
-.week-content {
-  margin: 0 18px 32px 18px;
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(34,139,34,0.06);
-  padding-bottom: 18px;
-  display: none;
+#progress-text {
+  color: #666;
+  font-size: 1em;
+  margin: 0;
 }
-.week-content.active {
-  display: block;
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 22px 0 rgba(34, 139, 34, 0.07);
+  padding: 28px 24px;
+  margin-bottom: 26px;
 }
-.week-header {
-  padding: 18px 0 8px 0;
-  border-bottom: 2px solid var(--accent);
-  margin-bottom: 12px;
+
+.card h2 {
+  margin-top: 0;
+  color: #228b22;
+  font-size: 1.6em;
+  font-weight: 700;
 }
+
+.card p {
+  color: #444;
+  font-size: 1.07em;
+}
+
 .day {
-  margin-bottom: 24px;
-  border-radius: 8px;
-  background: var(--accent);
-  box-shadow: 0 1px 4px rgba(34,139,34,0.05);
+  margin-bottom: 18px;
 }
+
 .day-header {
-  font-size: 1.2rem;
-  font-weight: bold;
-  background: var(--forest-green);
-  color: var(--white);
-  padding: 11px 22px;
   cursor: pointer;
-  border-radius: 8px 8px 0 0;
-  user-select: none;
+  background: #228b22;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 1.14em;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.toggle-btn {
-  font-size: 1.1em;
-  margin-left: 8px;
-}
-.day-content {
-  padding: 16px 30px;
-  animation: fadeIn 0.35s;
-}
-.day-content.collapsed {
-  display: none;
+  border: none;
+  outline: none;
+  transition: background 0.18s;
 }
 
-/* ==== DADDY TIME TRACKER ==== */
+.day-header:hover {
+  background: #ff7f50;
+}
+
+.day-content {
+  background: #f0f8ff;
+  border-radius: 0 0 14px 14px;
+  padding: 22px 22px 10px 22px;
+  margin-top: 0;
+}
+
 .daily-tracker {
-  margin-bottom: 10px;
-  background: var(--white);
-  padding: 11px 18px;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(34,139,34,0.07);
+  margin-bottom: 14px;
 }
 
 .tracker-title {
-  font-weight: bold;
+  color: #228b22;
+  font-weight: 600;
   margin-bottom: 6px;
-  color: var(--forest-green);
-  font-size: 1.08em;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+  margin-bottom: 12px;
+}
+
+.checkbox-item {
   display: flex;
   align-items: center;
 }
-.tracker-title::before {
-  content: "🕐";
+
+input[type="checkbox"] {
+  accent-color: #ff7f50;
   margin-right: 7px;
-  font-size: 1.1em;
+  transform: scale(1.15);
 }
 
-/* ==== ICONS NEXT TO NAMES (CSS ONLY) ==== */
-/* Elias: Lion Head 🦁 */
-.checkbox-group label[for^="elias-"]::before {
-  content: "🦁 ";
-  font-size: 1.15em;
-  margin-right: 4px;
-}
-/* Lucas: Horse (mounted knight) 🏇 */
-.checkbox-group label[for^="lucas-"]::before {
-  content: "🏇 ";
-  font-size: 1.15em;
-  margin-right: 4px;
-}
-/* Miriam: Blossom 🌸 */
-.checkbox-group label[for^="miriam-"]::before {
-  content: "🌸 ";
-  font-size: 1.15em;
-  margin-right: 4px;
-}
-/* Cati: Red Heart ❤️ */
-.checkbox-group label[for^="cati-"]::before {
-  content: "❤️ ";
-  font-size: 1.15em;
-  margin-right: 4px;
-}
-
-/* ==== BOOK EXCERPT ==== */
-.book-excerpt {
-  background: var(--light-bg);
-  border-left: 6px solid var(--coral);
-  padding: 12px 20px;
-  margin-bottom: 10px;
-  border-radius: 7px;
-  font-size: 1.02em;
-}
 .book-excerpt h4 {
-  margin-top: 0;
-  color: var(--forest-green);
+  color: #ff7f50;
+  font-size: 1.04em;
+  margin: 14px 0 7px 0;
 }
 
-/* ==== ACTIVITIES ==== */
-.activities, .family-activities {
-  margin: 13px 0;
-  background: var(--white);
-  padding: 8px 20px 8px 12px;
-  border-radius: 7px;
-  box-shadow: 0 1px 4px rgba(255,127,80,0.06);
-}
-.activities h4, .family-activities h4 {
-  color: var(--coral);
-  margin-bottom: 5px;
-}
-.activities ul, .family-activities ul {
-  margin: 0 0 0 18px;
-  padding: 0;
-}
-.activities ul li, .family-activities ul li {
-  margin-bottom: 4px;
+.book-excerpt p {
+  color: #333;
+  font-size: 1em;
+  margin: 0 0 12px 0;
 }
 
-/* ==== BOTTOM NAVIGATION ==== */
-.bottom-navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-top: 32px;
-}
-.nav-btn {
-  background: var(--coral);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 24px;
-  font-weight: bold;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.nav-btn:disabled {
-  background: var(--accent);
-  color: var(--gray);
-  cursor: not-allowed;
-}
-.week-indicator {
-  font-size: 1.08em;
-  color: var(--forest-green);
+.activities h4,
+.family-activities h4 {
+  color: #228b22;
+  margin-bottom: 3px;
+  font-size: 1.07em;
 }
 
-.daily-structure {
-  background: var(--accent);
-  border-radius: 16px;
-  margin: 32px 0 0 0;
-  padding: 20px;
+.activities ul,
+.family-activities ul {
+  margin: 0 0 14px 0;
+  padding-left: 22px;
 }
-.structure-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap: 16px;
+.checkbox-done {
+  text-decoration-line: line-through;
+  text-decoration-style: double;
+  text-decoration-thickness: 0.8px;
+  text-decoration-color: #e75480; /* bright pink */
+  opacity: 0.85;
+  transition: text-decoration-color 0.2s, opacity 0.2s;
 }
-.structure-item {
-  background: var(--white);
-  border-radius: 9px;
-  padding: 12px;
-  box-shadow: 0 1px 3px rgba(34,139,34,0.08);
-}
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 850px) {
+@media (max-width: 700px) {
   .container {
-    max-width: 97vw;
-    border-radius: 0 0 16px 16px;
-    padding: 0 0 44px 0;
+    padding: 0 2vw 30px 2vw;
   }
-}
-@media (max-width: 600px) {
-  .header, .week-header {
-    padding: 14px;
-    font-size: 0.99em;
+  .header {
+    padding: 20px 4vw 20px 4vw;
   }
-  .day-content {
-    padding: 10px 8px;
+  .week-tabs {
+    flex-wrap: wrap;
+    gap: 3px;
+    padding: 10px 0 8px 0;
   }
   .progress-section {
-    padding: 10px;
+    padding: 14px 7vw;
+    border-radius: 11px;
   }
-  .daily-structure {
-    padding: 10px;
+  .card {
+    padding: 14px 8px;
+    border-radius: 10px;
   }
-  .structure-grid {
-    grid-template-columns: 1fr;
-    gap: 9px;
+  .day-header {
+    font-size: 1em;
+    padding: 10px 10px;
+    border-radius: 7px;
   }
-  .bottom-navigation {
-    gap: 7px;
-    font-size: 0.97em;
+  .day-content {
+    padding: 12px 8px 6px 8px;
+    border-radius: 0 0 7px 7px;
   }
-}
-
-/* ==== ANIMATION ==== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
+  .checkbox-done {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: orange;
+    opacity: 0.7;
+    /* Optionally, you can add transition for smoother effect */
+    transition: text-decoration-color 0.2s, opacity 0.2s;
+  }
 }
