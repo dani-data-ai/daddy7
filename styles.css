@@ -219,6 +219,28 @@ input[type="checkbox"] {
   opacity: 0.85;
   transition: text-decoration-color 0.2s, opacity 0.2s;
 }
+.week-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 30px 0 10px 0;
+}
+
+.week-navigation button {
+  background: #228b22;
+  color: #fff;
+  font-size: 1.07em;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.week-navigation button:hover {
+  background: #ff7f50;
+}
 @media (max-width: 700px) {
   .container {
     padding: 0 2vw 30px 2vw;
