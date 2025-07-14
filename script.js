@@ -68,6 +68,45 @@ document.addEventListener("DOMContentLoaded", function () {
         label.classList.add("checkbox-done");
       }
     });
+
+  // --- Week navigation buttons logic START ---
+  const weekTabs = document.querySelectorAll(".week-tabs a");
+
+  function getCurrentWeekIdx() {
+    return Array.from(weekTabs).findIndex((tab) =>
+      tab.classList.contains("active")
+    );
+  }
+
+  function navigateWeek(direction) {
+    const currentWeek = getCurrentWeekIdx();
+    let newIdx = currentWeek + direction;
+    if (newIdx < 0 || newIdx >= weekTabs.length) return;
+    weekTabs[newIdx].click();
+    // .active class will be updated by the click event handler on tab
+    updateNavButtons();
+  }
+
+  const prevBtn = document.getElementById("prevWeekBtn");
+  const nextBtn = document.getElementById("nextWeekBtn");
+
+  function updateNavButtons() {
+    const idx = getCurrentWeekIdx();
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === weekTabs.length - 1;
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => navigateWeek(-1));
+    nextBtn.addEventListener("click", () => navigateWeek(1));
+    weekTabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => {
+        updateNavButtons();
+      });
+    });
+    updateNavButtons();
+  }
+  // --- Week navigation buttons logic END ---
 });
 
 // Optional: Progress bar logic placeholder
