@@ -24,20 +24,6 @@ body {
   color: #eaf7ef;
 }
 
-.language-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-#lang-toggle {
-  background: #4CAF50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
 .container {
   max-width: 900px;
   margin: 0 auto;
