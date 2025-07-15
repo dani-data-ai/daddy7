@@ -101,6 +101,22 @@ body {
   border-radius: 10px;
   transition: width 0.4s;
 }
+#progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%; /* JS updates this */
+  background: linear-gradient(90deg, #4caf50 70%, #8bc34a 100%);
+  transition: width 0.3s;
+  border-radius: 10px 0 0 10px;
+}
 
 #progress-text {
   color: #666;
