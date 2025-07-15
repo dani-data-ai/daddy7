@@ -18,6 +18,8 @@ function showWeek(event, weekNum) {
     tab.classList.remove("active");
   });
   event.target.classList.add("active");
+  // Update progress bar for the newly visible week
+  updateProgress();
 }
 
 function collapseAllDays(context) {
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add event listeners for checkboxes to handle strike-through
+  // Add event listeners for checkboxes to handle strike-through and progress
   document
     .querySelectorAll('.checkbox-item input[type="checkbox"]')
     .forEach((checkbox) => {
@@ -61,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           label.classList.remove("checkbox-done");
         }
+        updateProgress();
       });
       // On load, set the correct class if already checked
       if (checkbox.checked) {
@@ -85,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     weekTabs[newIdx].click();
     // .active class will be updated by the click event handler on tab
     updateNavButtons();
+    // Progress bar will update by showWeek
   }
 
   const prevBtn = document.getElementById("prevWeekBtn");
@@ -107,9 +111,40 @@ document.addEventListener("DOMContentLoaded", function () {
     updateNavButtons();
   }
   // --- Week navigation buttons logic END ---
+
+  // Initial progress calculation
+  updateProgress();
 });
 
-// Optional: Progress bar logic placeholder
+// Progress bar logic implementation
 function updateProgress() {
-  // You can implement the progress logic here
+  // Find visible week-card
+  const weekCard = Array.from(document.querySelectorAll(".week-card")).find(
+    (card) => card.style.display !== "none"
+  );
+  // If not found, fallback to all checkboxes
+  let checkboxes;
+  if (weekCard) {
+    checkboxes = weekCard.querySelectorAll(
+      '.checkbox-item input[type="checkbox"]'
+    );
+  } else {
+    checkboxes = document.querySelectorAll(
+      '.checkbox-item input[type="checkbox"]'
+    );
+  }
+  const total = checkboxes.length;
+  const checked = Array.from(checkboxes).filter((cb) => cb.checked).length;
+  const percent = total === 0 ? 0 : Math.round((checked / total) * 100);
+
+  // Update bar width
+  const bar = document.getElementById("progress-bar");
+  if (bar) {
+    bar.style.width = percent + "%";
+  }
+  // Update text
+  const text = document.getElementById("progress-text");
+  if (text) {
+    text.textContent = `${percent}% Complete (${checked}/${total} sessions)`;
+  }
 }
