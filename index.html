@@ -10,22 +10,25 @@
 
 <body>
   <div class="header">
-    <h1>7-Week Character Building Journey</h1>
-    <p>Based on "It's Better to Build Boys Than Mend Men" by S. Truett Cathy</p>
-    <p>Personalized for Elias, Lucas, Miriam & Cati</p>
+    <div class="language-toggle">
+      <button id="lang-toggle" onclick="toggleLanguage()">RO</button>
+    </div>
+    <h1 data-translate="title">7-Week Character Building Journey</h1>
+    <p data-translate="subtitle">Based on "It's Better to Build Boys Than Mend Men" by S. Truett Cathy</p>
+    <p data-translate="personalized">Personalized for Elias, Lucas, Miriam & Cati</p>
   </div>
   <div class="container">
     <nav class="week-tabs">
-      <a href="#" class="active" data-week="1" onclick="showWeek(event, 1)">Week 1</a>
-      <a href="#" data-week="2" onclick="showWeek(event, 2)">Week 2</a>
-      <a href="#" data-week="3" onclick="showWeek(event, 3)">Week 3</a>
-      <a href="#" data-week="4" onclick="showWeek(event, 4)">Week 4</a>
-      <a href="#" data-week="5" onclick="showWeek(event, 5)">Week 5</a>
-      <a href="#" data-week="6" onclick="showWeek(event, 6)">Week 6</a>
-      <a href="#" data-week="7" onclick="showWeek(event, 7)">Week 7</a>
+      <a href="#" class="active" data-week="1" onclick="showWeek(event, 1)"><span data-translate="week">Week</span> 1</a>
+      <a href="#" data-week="2" onclick="showWeek(event, 2)"><span data-translate="week">Week</span> 2</a>
+      <a href="#" data-week="3" onclick="showWeek(event, 3)"><span data-translate="week">Week</span> 3</a>
+      <a href="#" data-week="4" onclick="showWeek(event, 4)"><span data-translate="week">Week</span> 4</a>
+      <a href="#" data-week="5" onclick="showWeek(event, 5)"><span data-translate="week">Week</span> 5</a>
+      <a href="#" data-week="6" onclick="showWeek(event, 6)"><span data-translate="week">Week</span> 6</a>
+      <a href="#" data-week="7" onclick="showWeek(event, 7)"><span data-translate="week">Week</span> 7</a>
     </nav>
     <div class="progress-section">
-  <h3>📊 Overall Progress</h3>
+  <h3>📊 <span data-translate="overall_progress">Overall Progress</span></h3>
   <div id="progress-bar-container">
     <div id="progress-bar"></div>
   </div>
@@ -34,322 +37,276 @@
 
     <!-- Week 1 Card -->
     <div class="card week-card active" id="week1">
-      <h2>Week 1: Changing a Child Changes You</h2>
-      <p>Building the Foundation of Love and Connection</p>
+      <h2 data-translate="week1_title">Week 1: Changing a Child Changes You</h2>
+      <p data-translate="week1_subtitle">Building the Foundation of Love and Connection</p>
       <!-- Activities for the week, before Day 1 -->
       <div class="activities">
-        <h4>For Elias (7, shy, emotional, loves hugs):</h4>
+        <h4 data-translate="elias_activities">For Elias (7, shy, emotional, loves hugs):</h4>
         <ul>
-          <li><strong>Daily hugs ritual</strong>: 3 specific hug times - morning, after school, bedtime</li>
-          <li><strong>Brave moments</strong>: Each day, acknowledge one "brave" thing he did (even small ones)</li>
-          <li><strong>Nighttime routine</strong>: Special bedtime prayers together, night light with timer</li>
-          <li><strong>Breathing games</strong>: Blow bubbles (great for asthma!) - see who can make the biggest bubble</li>
-          <li><strong>Wrestling time</strong>: 10 minutes of gentle "knight training" with foam swords after school</li>
+          <li><strong data-translate="daily_hugs">Daily hugs ritual</strong>: <span data-translate="hug_times">3 specific hug times - morning, after school, bedtime</span></li>
+          <li><strong data-translate="brave_moments">Brave moments</strong>: <span data-translate="brave_description">Each day, acknowledge one "brave" thing he did (even small ones)</span></li>
+          <li><strong data-translate="nighttime_routine">Nighttime routine</strong>: <span data-translate="night_description">Special bedtime prayers together, night light with timer</span></li>
+          <li><strong data-translate="breathing_games">Breathing games</strong>: <span data-translate="bubbles_description">Blow bubbles (great for asthma!) - see who can make the biggest bubble</span></li>
+          <li><strong data-translate="wrestling_time">Wrestling time</strong>: <span data-translate="knight_training">10 minutes of gentle "knight training" with foam swords after school</span></li>
         </ul>
       </div>
       <div class="activities">
-        <h4>For Lucas (9, independent, athletic, observant):</h4>
+        <h4 data-translate="lucas_activities">For Lucas (9, independent, athletic, observant):</h4>
         <ul>
-          <li><strong>Man-to-man time</strong>: 15 minutes daily of just talking - let him lead the conversation</li>
-          <li><strong>Football training</strong>: Practice skills that build lung capacity (dribbling, short sprints)</li>
-          <li><strong>Observation game</strong>: Ask him what he noticed about people's behavior that day</li>
-          <li><strong>Respect handshake</strong>: Teach firm handshake, practice daily</li>
-          <li><strong>Problem-solving</strong>: Give him small family decisions to help with</li>
+          <li><strong data-translate="man_time">Man-to-man time</strong>: <span data-translate="talk_time">15 minutes daily of just talking - let him lead the conversation</span></li>
+          <li><strong data-translate="football_training">Football training</strong>: <span data-translate="lung_capacity">Practice skills that build lung capacity (dribbling, short sprints)</span></li>
+          <li><strong data-translate="observation_game">Observation game</strong>: <span data-translate="behavior_notice">Ask him what he noticed about people's behavior that day</span></li>
+          <li><strong data-translate="respect_handshake">Respect handshake</strong>: <span data-translate="handshake_practice">Teach firm handshake, practice daily</span></li>
+          <li><strong data-translate="problem_solving">Problem-solving</strong>: <span data-translate="family_decisions">Give him small family decisions to help with</span></li>
         </ul>
       </div>
       <div class="activities">
-        <h4>For Miriam (3, cuddly, learning to talk):</h4>
+        <h4 data-translate="miriam_activities">For Miriam (3, cuddly, learning to talk):</h4>
         <ul>
-          <li><strong>Cuddle reading</strong>: 20 minutes of picture books together daily</li>
-          <li><strong>Simple words</strong>: Practice saying family names clearly</li>
-          <li><strong>Helper tasks</strong>: Let her "help" with simple chores (sorting socks by color)</li>
-          <li><strong>Dance parties</strong>: 10 minutes of dancing to build coordination</li>
+          <li><strong data-translate="cuddle_reading">Cuddle reading</strong>: <span data-translate="picture_books">20 minutes of picture books together daily</span></li>
+          <li><strong data-translate="simple_words">Simple words</strong>: <span data-translate="family_names">Practice saying family names clearly</span></li>
+          <li><strong data-translate="helper_tasks">Helper tasks</strong>: <span data-translate="sorting_socks">Let her "help" with simple chores (sorting socks by color)</span></li>
+          <li><strong data-translate="dance_parties">Dance parties</strong>: <span data-translate="coordination">10 minutes of dancing to build coordination</span></li>
         </ul>
       </div>
       <div class="family-activities">
-        <h4>🏠 Family Activities:</h4>
+        <h4>🏠 <span data-translate="family_activities_title">Family Activities:</span></h4>
         <ul>
-          <li><strong>Family motto</strong>: Create a simple family motto together</li>
-          <li><strong>Dinner conversations</strong>: Each person shares one good thing from their day</li>
-          <li><strong>Weekend adventure</strong>: One small outdoor activity together</li>
+          <li><strong data-translate="family_motto">Family motto</strong>: <span data-translate="create_motto">Create a simple family motto together</span></li>
+          <li><strong data-translate="dinner_conversations">Dinner conversations</strong>: <span data-translate="good_thing">Each person shares one good thing from their day</span></li>
+          <li><strong data-translate="weekend_adventure">Weekend adventure</strong>: <span data-translate="outdoor_activity">One small outdoor activity together</span></li>
         </ul>
       </div>
 
       <!-- Day 1 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 1 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 1 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day1" onchange="updateProgress()">
-                <label for="elias-day1">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day1"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day1" onchange="updateProgress()">
-                <label for="lucas-day1">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day1"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day1" onchange="updateProgress()">
-                <label for="miriam-day1">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day1"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day1" onchange="updateProgress()">
-                <label for="cati-day1">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day1"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: The Power of Fatherly Love</h4>
-            <p>God wants to work through you to change the life of a child. He will provide the love, the encouragement, the joy, and the hope. All you have to contribute are arms for hugs, a voice to encourage or to discipline, and time for companionship. You don't have to look far to find the child. In fact, your paths will probably cross this week. And when you reach out, your reward will be immeasurable. Every child God touches through you will be changed, even if you don't see the transformation with your own eyes. And you will be changed by every child God touches through you. I was thirteen years old when God worked through Theo Abby, my Sunday school teacher, to change my life. In a real sense, I had been "fatherless." My father was alive. In fact, he was home every night, and I never knew him to gamble or drink or cheat on my mother. But he never told me, "I love you." And when I needed help, like the time when I was sick on a rainy Sunday morning and had to get my newspapers delivered, I knew not to even ask him.</p>
+            <h4>📖 <span data-translate="from_book">From the Book: The Power of Fatherly Love</span></h4>
+            <p data-translate="book_excerpt_1">God wants to work through you to change the life of a child. He will provide the love, the encouragement, the joy, and the hope. All you have to contribute are arms for hugs, a voice to encourage or to discipline, and time for companionship. You don't have to look far to find the child. In fact, your paths will probably cross this week. And when you reach out, your reward will be immeasurable. Every child God touches through you will be changed, even if you don't see the transformation with your own eyes. And you will be changed by every child God touches through you. I was thirteen years old when God worked through Theo Abby, my Sunday school teacher, to change my life. In a real sense, I had been "fatherless." My father was alive. In fact, he was home every night, and I never knew him to gamble or drink or cheat on my mother. But he never told me, "I love you." And when I needed help, like the time when I was sick on a rainy Sunday morning and had to get my newspapers delivered, I knew not to even ask him.</p>
           </div>
           <div class="activities">
-            <p><em>Continue building daily routines and connections with each child...</em></p>
+            <p><em data-translate="continue_building">Continue building daily routines and connections with each child...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 2 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 2 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 2 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day2" onchange="updateProgress()">
-                <label for="elias-day2">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day2"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day2" onchange="updateProgress()">
-                <label for="lucas-day2">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day2"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day2" onchange="updateProgress()">
-                <label for="miriam-day2">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day2"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day2" onchange="updateProgress()">
-                <label for="cati-day2">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day2"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: The Example of a Loving Father</h4>
-            <p>Then Theo Abby became my teacher and my friend. Occasionally he visited the federal housing project where I lived to see me and other boys in our class, and he invited us to go with him and his son Ted to his lakeside cabin. There he modeled with Ted a loving father-son relationship. As an adult I remembered Mr. Abby's example and decided to teach boys in Sunday school. Like Mr. Abby, I kept in touch with the boys through the week by inviting the entire class to be my guests at the Dwarf House, my first restaurant, one night a week. I soon began to see how children bursting with potential can wither on the vine without adequate guidance from adults. Children all around us are growing up without strong positive guidance from their parents, who are busy, distracted, absent, or choose to be buddies instead of parents to their children. You see these boys and girls playing with your children or grandchildren, or in your church, or in your classroom or Scout troop.</p>
+            <h4>📖 <span data-translate="from_book_2">From the Book: The Example of a Loving Father</span></h4>
+            <p data-translate="book_excerpt_2">Then Theo Abby became my teacher and my friend. Occasionally he visited the federal housing project where I lived to see me and other boys in our class, and he invited us to go with him and his son Ted to his lakeside cabin. There he modeled with Ted a loving father-son relationship. As an adult I remembered Mr. Abby's example and decided to teach boys in Sunday school. Like Mr. Abby, I kept in touch with the boys through the week by inviting the entire class to be my guests at the Dwarf House, my first restaurant, one night a week. I soon began to see how children bursting with potential can wither on the vine without adequate guidance from adults. Children all around us are growing up without strong positive guidance from their parents, who are busy, distracted, absent, or choose to be buddies instead of parents to their children. You see these boys and girls playing with your children or grandchildren, or in your church, or in your classroom or Scout troop.</p>
           </div>
           <div class="activities">
-            <p><em>Continue building daily routines and connections with each child...</em></p>
+            <p><em data-translate="continue_building">Continue building daily routines and connections with each child...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 3 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 3 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 3 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day3" onchange="updateProgress()">
-                <label for="elias-day3">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day3"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day3" onchange="updateProgress()">
-                <label for="lucas-day3">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day3"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day3" onchange="updateProgress()">
-                <label for="miriam-day3">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day3"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day3" onchange="updateProgress()">
-                <label for="cati-day3">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day3"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: Chapter 1 - Part 3</h4>
-            <p>Children all around us are growing up without strong positive guidance from their parents, who are busy, distracted, absent, or choose to be buddies instead of parents to their children. You see these boys and girls playing with your children or grandchildren, or in your church, or in your classroom or Scout troop. They're a bit quieter or a bit more rambunctious or a bit different from the other children. You may know about trouble in their homes—divorce or the death of a parent or grandparent. Or, like my friend Kevin, they may be in a stable, two-parent home. "My father was a busy person," Kevin says. "He didn't spend a lot of time with me." Today Kevin is in jail. In fact, he's spent more than half of his adult life behind bars as society attempts to mend him. The United States is the world's leader in fatherless homes. The results of our actions, according to the Fathers' Manifesto are staggering: 63% of youth suicides are from fatherless homes. 90% of all homeless and runaway children are from fatherless homes. 80% of rapists motivated with displaced angers come from fatherless homes. 71% of all high school dropouts come from fatherless homes. 85% of youth in prisons grew up in fatherless homes. 75% of all adolescent patients in drug treatment centers come from fatherless homes. Children from fatherless homes are 5 times more likely to commit suicide, 32 times more likely to run away, 20 times more likely to have behavioral disorders, 14 times more likely to commit rape, 9 times more likely to drop out of school, 10 times more likely to abuse chemical substances, 9 times more likely to end up in a state-operated institution, and 20 times more likely to end up in prison.</p>
+            <h4>📖 <span data-translate="from_book_3">From the Book: Chapter 1 - Part 3</span></h4>
+            <p data-translate="book_excerpt_3">Children all around us are growing up without strong positive guidance from their parents, who are busy, distracted, absent, or choose to be buddies instead of parents to their children. You see these boys and girls playing with your children or grandchildren, or in your church, or in your classroom or Scout troop. They're a bit quieter or a bit more rambunctious or a bit different from the other children. You may know about trouble in their homes—divorce or the death of a parent or grandparent. Or, like my friend Kevin, they may be in a stable, two-parent home. "My father was a busy person," Kevin says. "He didn't spend a lot of time with me." Today Kevin is in jail. In fact, he's spent more than half of his adult life behind bars as society attempts to mend him. The United States is the world's leader in fatherless homes. The results of our actions, according to the Fathers' Manifesto are staggering: 63% of youth suicides are from fatherless homes. 90% of all homeless and runaway children are from fatherless homes. 80% of rapists motivated with displaced angers come from fatherless homes. 71% of all high school dropouts come from fatherless homes. 85% of youth in prisons grew up in fatherless homes. 75% of all adolescent patients in drug treatment centers come from fatherless homes. Children from fatherless homes are 5 times more likely to commit suicide, 32 times more likely to run away, 20 times more likely to have behavioral disorders, 14 times more likely to commit rape, 9 times more likely to drop out of school, 10 times more likely to abuse chemical substances, 9 times more likely to end up in a state-operated institution, and 20 times more likely to end up in prison.</p>
           </div>
           <div class="activities">
-            <p><em>Continue building daily routines and connections with each child...</em></p>
+            <p><em data-translate="continue_building">Continue building daily routines and connections with each child...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 4 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 4 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 4 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day4" onchange="updateProgress()">
-                <label for="elias-day4">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day4"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day4" onchange="updateProgress()">
-                <label for="lucas-day4">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day4"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day4" onchange="updateProgress()">
-                <label for="miriam-day4">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day4"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day4" onchange="updateProgress()">
-                <label for="cati-day4">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day4"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: Chapter 1 - Part 4</h4>
-            <p>Every idea that works has its basis in Scripture. Many of the lessons in this book come from Proverbs 22, from which I drew my life verse seventy years ago: "A good name is rather to be chosen than great riches, and loving favour rather than silver and gold." That chapter in Proverbs also includes the timeless reminder, "Train a child in the way he should go, and when he is old he will not turn from it." Additionally, Proverbs 22 offers advice on common sense, generosity, control of your temper, hard work, quality work, sexual abstinence, money management, corporal punishment, and trust in the Lord, among other things. The best thing you can do to help a child is follow your instinct and God's leading. Reach out to children sincerely. Reach out in love. Love children into a sense of belonging. Let a child know you care and you're available to talk—to be a friend. Encourage children honestly, reminding them of their strengths and their opportunities. There are no magic words. All you can do is share a bit of yourself, allow God to use you to plant a seed in a child, and pray that it takes root. I have been blessed to work with many dedicated couples through the years—houseparents at our WinShape Homes, coaches in our WinShape Camps programs, and restaurant Operators who work directly with dozens of young people every day. I have learned from my wife, Jeannette, who grew up in a home without a father and relied on her heavenly Father from the age of five.</p>
+            <h4>📖 <span data-translate="from_book_4">From the Book: Chapter 1 - Part 4</span></h4>
+            <p data-translate="book_excerpt_4">Every idea that works has its basis in Scripture. Many of the lessons in this book come from Proverbs 22, from which I drew my life verse seventy years ago: "A good name is rather to be chosen than great riches, and loving favour rather than silver and gold." That chapter in Proverbs also includes the timeless reminder, "Train a child in the way he should go, and when he is old he will not turn from it." Additionally, Proverbs 22 offers advice on common sense, generosity, control of your temper, hard work, quality work, sexual abstinence, money management, corporal punishment, and trust in the Lord, among other things. The best thing you can do to help a child is follow your instinct and God's leading. Reach out to children sincerely. Reach out in love. Love children into a sense of belonging. Let a child know you care and you're available to talk—to be a friend. Encourage children honestly, reminding them of their strengths and their opportunities. There are no magic words. All you can do is share a bit of yourself, allow God to use you to plant a seed in a child, and pray that it takes root. I have been blessed to work with many dedicated couples through the years—houseparents at our WinShape Homes, coaches in our WinShape Camps programs, and restaurant Operators who work directly with dozens of young people every day. I have learned from my wife, Jeannette, who grew up in a home without a father and relied on her heavenly Father from the age of five.</p>
           </div>
           <div class="activities">
-            <p><em>Focus on deepening individual connections with each child through their preferred activities...</em></p>
+            <p><em data-translate="focus_individual">Focus on deepening individual connections with each child through their preferred activities...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 5 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 5 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 5 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day5" onchange="updateProgress()">
-                <label for="elias-day5">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day5"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day5" onchange="updateProgress()">
-                <label for="lucas-day5">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day5"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day5" onchange="updateProgress()">
-                <label for="miriam-day5">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day5"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day5" onchange="updateProgress()">
-                <label for="cati-day5">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day5"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: Chapter 1 - Part 5</h4>
-            <p>I hope the thoughts and illustrations in this book help you in particular situations, but the best thing you can do to help a child is follow your instinct and God's leading. Reach out to children sincerely. Reach out in love. Love children into a sense of belonging. Let a child know you care and you're available to talk—to be a friend. Encourage children honestly, reminding them of their strengths and their opportunities. There are no magic words. All you can do is share a bit of yourself, allow God to use you to plant a seed in a child, and pray that it takes root. A good child nearby is about to make bad choices that will have lasting consequences and needs for you to step in right now. This book is for that child. My hope is that by reading about the experiences of some children I have known, you will be inspired to reach out to a child near you—a child full of potential who needs the guiding hand of a wise adult. Sometimes, even when parents and mentors seemingly do everything right in bringing up a child, that child makes wrong choices. Ultimately, the child chooses which direction to go. I would like to offer tribute to those parents who tried to teach their children well but whose hearts were broken by the choices their children made. But we must never give up. Every moment we invest in building a child's character is a seed planted for their future. The foundation we lay in these early years will serve them when they face life's greatest challenges.</p>
+            <h4>📖 <span data-translate="from_book_5">From the Book: Chapter 1 - Part 5</span></h4>
+            <p data-translate="book_excerpt_5">I hope the thoughts and illustrations in this book help you in particular situations, but the best thing you can do to help a child is follow your instinct and God's leading. Reach out to children sincerely. Reach out in love. Love children into a sense of belonging. Let a child know you care and you're available to talk—to be a friend. Encourage children honestly, reminding them of their strengths and their opportunities. There are no magic words. All you can do is share a bit of yourself, allow God to use you to plant a seed in a child, and pray that it takes root. A good child nearby is about to make bad choices that will have lasting consequences and needs for you to step in right now. This book is for that child. My hope is that by reading about the experiences of some children I have known, you will be inspired to reach out to a child near you—a child full of potential who needs the guiding hand of a wise adult. Sometimes, even when parents and mentors seemingly do everything right in bringing up a child, that child makes wrong choices. Ultimately, the child chooses which direction to go. I would like to offer tribute to those parents who tried to teach their children well but whose hearts were broken by the choices their children made. But we must never give up. Every moment we invest in building a child's character is a seed planted for their future. The foundation we lay in these early years will serve them when they face life's greatest challenges.</p>
           </div>
           <div class="activities">
-            <p><em>Prepare for weekend family activities and reflect on the week's progress...</em></p>
+            <p><em data-translate="prepare_weekend">Prepare for weekend family activities and reflect on the week's progress...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 6 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 6 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 6 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day6" onchange="updateProgress()">
-                <label for="elias-day6">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day6"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day6" onchange="updateProgress()">
-                <label for="lucas-day6">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day6"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day6" onchange="updateProgress()">
-                <label for="miriam-day6">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day6"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day6" onchange="updateProgress()">
-                <label for="cati-day6">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day6"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: Chapter 1 - Part 6</h4>
-            <p>God wants to work through you to change the life of a child. Make yourself available to Him, and He may bless you with the opportunity to watch Him build and transform a life. One of Doug and Julie Bowling's foster children wrote them a letter and followed up with a phone call apologizing for all the hardship she had brought into their home. She had been an extremely difficult teenager, and she asked them, "What can I do to make it right?" That young lady had been transformed by God's love, expressed through Doug and Julie. "All I ask you to do," Julie replied, "is take care of your own children. Break the cycle of abandonment that you experienced from your own parents. Let God plant a seed of love and hope in your children's hearts." That's what God is asking you today. "Feed My sheep." "Do for one of the least of these." "Welcome the little children in My name." Let Him use you to change the life of a child, then experience the blessing of your own transformation. The power to influence a child's life is within your reach. You may not feel equipped or worthy, but God has placed these children in your path for a purpose. Every child you encounter is fighting battles you may never know about, carrying burdens too heavy for their small shoulders. Your consistent presence, your encouraging words, your patient guidance can be the difference between a life well-lived and a life of regret and pain.</p>
+            <h4>📖 <span data-translate="from_book_6">From the Book: Chapter 1 - Part 6</span></h4>
+            <p data-translate="book_excerpt_6">God wants to work through you to change the life of a child. Make yourself available to Him, and He may bless you with the opportunity to watch Him build and transform a life. One of Doug and Julie Bowling's foster children wrote them a letter and followed up with a phone call apologizing for all the hardship she had brought into their home. She had been an extremely difficult teenager, and she asked them, "What can I do to make it right?" That young lady had been transformed by God's love, expressed through Doug and Julie. "All I ask you to do," Julie replied, "is take care of your own children. Break the cycle of abandonment that you experienced from your own parents. Let God plant a seed of love and hope in your children's hearts." That's what God is asking you today. "Feed My sheep." "Do for one of the least of these." "Welcome the little children in My name." Let Him use you to change the life of a child, then experience the blessing of your own transformation. The power to influence a child's life is within your reach. You may not feel equipped or worthy, but God has placed these children in your path for a purpose. Every child you encounter is fighting battles you may never know about, carrying burdens too heavy for their small shoulders. Your consistent presence, your encouraging words, your patient guidance can be the difference between a life well-lived and a life of regret and pain.</p>
           </div>
           <div class="activities">
-            <p><em>Weekend focus: Special family time and individual activities with each child...</em></p>
+            <p><em data-translate="weekend_focus">Weekend focus: Special family time and individual activities with each child...</em></p>
           </div>
         </div>
       </div>
       <!-- Day 7 -->
       <div class="day">
-        <div class="day-header" onclick="toggleDay(this)">Day 7 <span>▼</span></div>
+        <div class="day-header" onclick="toggleDay(this)"><span data-translate="day">Day</span> 7 <span>▼</span></div>
         <div class="day-content">
           <div class="daily-tracker">
-            <div class="tracker-title">🕐 Daily Daddy Time Tracker (1 Hour Total)</div>
+            <div class="tracker-title">🕐 <span data-translate="daily_tracker">Daily Daddy Time Tracker (1 Hour Total)</span></div>
             <div class="checkbox-group">
               <div class="checkbox-item">
                 <input type="checkbox" id="elias-day7" onchange="updateProgress()">
-                <label for="elias-day7">15 min with Elias (prayer & hugs)</label>
+                <label for="elias-day7"><span data-translate="min_with">15 min with</span> Elias (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="lucas-day7" onchange="updateProgress()">
-                <label for="lucas-day7">15 min with Lucas (prayer & hugs)</label>
+                <label for="lucas-day7"><span data-translate="min_with">15 min with</span> Lucas (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="miriam-day7" onchange="updateProgress()">
-                <label for="miriam-day7">15 min with Miriam (prayer & hugs)</label>
+                <label for="miriam-day7"><span data-translate="min_with">15 min with</span> Miriam (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
               <div class="checkbox-item">
                 <input type="checkbox" id="cati-day7" onchange="updateProgress()">
-                <label for="cati-day7">15 min with Cati (prayer & hugs)</label>
+                <label for="cati-day7"><span data-translate="min_with">15 min with</span> Cati (<span data-translate="prayer_hugs">prayer & hugs</span>)</label>
               </div>
             </div>
           </div>
           <div class="book-excerpt">
-            <h4>📖 From the Book: Chapter 1 - Part 7</h4>
-            <p>Remember that the influence you have on a child today will ripple through generations. The boy or girl you encourage, guide, and love will become the parent, teacher, coach, or mentor who influences other children. Your investment multiplies exponentially. The child you build today may build dozens of other children throughout their lifetime. This is the profound responsibility and privilege we have as adults in the lives of children. We are not just shaping one life; we are shaping the future. Every act of kindness, every moment of patient instruction, every expression of unconditional love becomes part of the foundation upon which a child builds their character. And that character, once established, becomes the bedrock from which they will influence others. It truly is better to build boys than mend men, better to guide children than repair adults. The investment we make in a child's early years pays dividends that last for generations. So reach out to the children around you. Love them, guide them, believe in them. Help them build the strong character that will carry them through life's challenges and enable them to build others in return. This is our calling, our privilege, and our greatest opportunity to make a lasting difference in this world.</p>
-          </div>
-          <div class="activities">
-            <p><em>Week 1 reflection: Celebrate progress and prepare for Week 2...</em></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 2 Card (example placeholder) -->
-    <div class="card week-card" id="week2" style="display:none;">
-      <h2>Week 2: Respect</h2>
-      <p>Content for Week 2 goes here...</p>
-    </div>
-
-    <!-- Week 3 Card (example placeholder) -->
-    <div class="card week-card" id="week3" style="display:none;">
-      <h2>Week 3: Trust & Generosity</h2>
-      <p>Content for Week 3 goes here...</p>
-    </div>
-
-    <!-- Repeat for Week 4-7 ... -->
-    <div class="card week-card" id="week4" style="display:none;">
-      <h2>Week 4: Common Sense</h2>
-      <p>Content for Week 4 goes here...</p>
-    </div>
-    <div class="card week-card" id="week5" style="display:none;">
-      <h2>Week 5: Right Crowd</h2>
-      <p>Content for Week 5 goes here...</p>
-    </div>
-    <div class="card week-card" id="week6" style="display:none;">
-      <h2>Week 6: Stability</h2>
-      <p>Content for Week 6 goes here...</p>
-    </div>
-    <div class="card week-card" id="week7" style="display:none;">
-      <h2>Week 7: Good Name</h2>
-      <p>Content for Week 7 goes here...</p>
-    </div>
-    <div class="week-navigation">
-      <button id="prevWeekBtn">← Previous Week</button>
-      <button id="nextWeekBtn">Next Week →</button>
-    </div>
-  </div>
-  <script src="main.js"></script>
-</body>
-
-</html>
+            <h4>📖 <span data-translate="from_book_7">From the Book: Chapter 1 - Part 7</span></h4>
+            <p data-translate="book_excerpt_7">Remember that the influence you have on a child today will ripple through generations. The boy or girl you encourage, guide, and love will become the parent, teacher, coach, or mentor who influences other children. Your investment multiplies exponentially. The child you build today may build dozens of other children throughout their lifetime. This is the profound responsibility and privilege we have as adults in the lives of children. We are not just shaping one life; we are shaping the future. Every act of kindness, every moment of patient instruction, every expression of unconditional love becomes part of the foundation upon which a child builds their character. And that character, once established, becomes the bedrock from which they will influence others. It truly is better to build boys than mend men, better to guide children than repair adults. The investment we make in a child's early years pays dividends that last for generations. So reach out to the children around you. Love them, guide them, believe in them. Help them build the strong character that will carry them through life's challenges and enable them to build others in return. This is our calling, our
