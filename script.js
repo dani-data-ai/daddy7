@@ -1,63 +1,10 @@
-// Load translations
-let translations = {};
-let currentLanguage = localStorage.getItem('language') || 'en';
-
-// Load translations from JSON file
-async function loadTranslations() {
-  try {
-    const response = await fetch('translator.json');
-    translations = await response.json();
-    updateLanguage();
-  } catch (error) {
-    console.error('Failed to load translations:', error);
-  }
-}
-
-// Update all translated elements
-function updateLanguage() {
-  const elements = document.querySelectorAll('[data-translate]');
-  elements.forEach(element => {
-    const key = element.getAttribute('data-translate');
-    if (translations[currentLanguage] && translations[currentLanguage][key]) {
-      element.textContent = translations[currentLanguage][key];
-    }
-  });
-  
-  // Update document language
-  document.documentElement.lang = currentLanguage;
-  
-  // Update toggle button text
-  const toggleBtn = document.getElementById('lang-toggle');
-  if (toggleBtn) {
-    toggleBtn.textContent = currentLanguage === 'en' ? 'RO' : 'EN';
-  }
-  
-  // Update progress text with translation
-  updateProgressText();
-}
-
-// Toggle language function
-function toggleLanguage() {
-  currentLanguage = currentLanguage === 'en' ? 'ro' : 'en';
-  localStorage.setItem('language', currentLanguage);
-  updateLanguage();
-}
-
 function showWeek(event, weekNum) {
   event.preventDefault();
-  
-  // Get the clicked element - handle both direct link and span inside link
-  let clickedTab = event.target;
-  if (clickedTab.tagName === 'SPAN') {
-    clickedTab = clickedTab.parentElement;
-  }
-  
   // Hide all week cards
   document.querySelectorAll(".week-card").forEach((card) => {
     card.style.display = "none";
     card.classList.remove("active");
   });
-  
   // Show selected week card
   const selectedCard = document.getElementById("week" + weekNum);
   if (selectedCard) {
@@ -66,13 +13,11 @@ function showWeek(event, weekNum) {
     // Collapse all days in this week
     collapseAllDays(selectedCard);
   }
-  
   // Update tab active state
   document.querySelectorAll(".week-tabs a").forEach((tab) => {
     tab.classList.remove("active");
   });
-  clickedTab.classList.add("active");
-  
+  event.target.classList.add("active");
   // Update progress bar for the newly visible week
   updateProgress();
 }
@@ -80,55 +25,54 @@ function showWeek(event, weekNum) {
 function collapseAllDays(context) {
   const scope = context || document;
   scope.querySelectorAll(".day-content").forEach((content) => {
-    content.style.display = "none";
+    content.style.display = "none"; // always hide
     const header = content.previousElementSibling;
-    if (header && header.querySelector("span:last-child")) {
-      header.querySelector("span:last-child").textContent = "▼";
+    if (header && header.querySelector("span")) {
+      header.querySelector("span").textContent = "▼";
     }
   });
-}
-
-function toggleDay(header) {
-  const content = header.nextElementSibling;
-  if (!content) return;
-  
-  const arrow = header.querySelector("span:last-child");
-  if (content.style.display === "block") {
-    content.style.display = "none";
-    if (arrow) arrow.textContent = "▼";
-  } else {
-    content.style.display = "block";
-    if (arrow) arrow.textContent = "▲";
-  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Load translations first
-  loadTranslations();
-  
   // Collapse all days at start
   collapseAllDays();
 
-  // Add event listeners for checkboxes
-  document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      const label = checkbox.nextElementSibling;
-      if (checkbox.checked) {
-        label.classList.add("checkbox-done");
+  // Add click event for each day header
+  document.querySelectorAll(".day-header").forEach((header) => {
+    header.addEventListener("click", function () {
+      const content = header.nextElementSibling;
+      if (!content) return;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        header.querySelector("span").textContent = "▼";
       } else {
-        label.classList.remove("checkbox-done");
+        content.style.display = "block";
+        header.querySelector("span").textContent = "▲";
       }
-      updateProgress();
     });
-    
-    // Set correct class if already checked
-    if (checkbox.checked) {
-      const label = checkbox.nextElementSibling;
-      label.classList.add("checkbox-done");
-    }
   });
 
-  // Week navigation logic
+  // Add event listeners for checkboxes to handle strike-through and progress
+  document
+    .querySelectorAll('.checkbox-item input[type="checkbox"]')
+    .forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        const label = checkbox.nextElementSibling;
+        if (checkbox.checked) {
+          label.classList.add("checkbox-done");
+        } else {
+          label.classList.remove("checkbox-done");
+        }
+        updateProgress();
+      });
+      // On load, set the correct class if already checked
+      if (checkbox.checked) {
+        const label = checkbox.nextElementSibling;
+        label.classList.add("checkbox-done");
+      }
+    });
+
+  // --- Week navigation buttons logic START ---
   const weekTabs = document.querySelectorAll(".week-tabs a");
 
   function getCurrentWeekIdx() {
@@ -141,12 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentWeek = getCurrentWeekIdx();
     let newIdx = currentWeek + direction;
     if (newIdx < 0 || newIdx >= weekTabs.length) return;
-    
-    // Simulate click on the target tab
-    const targetTab = weekTabs[newIdx];
-    const weekNum = targetTab.getAttribute('data-week');
-    showWeek({ target: targetTab, preventDefault: () => {} }, parseInt(weekNum));
+    weekTabs[newIdx].click();
+    // .active class will be updated by the click event handler on tab
     updateNavButtons();
+    // Progress bar will update by showWeek
   }
 
   const prevBtn = document.getElementById("prevWeekBtn");
@@ -161,27 +103,26 @@ document.addEventListener("DOMContentLoaded", function () {
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => navigateWeek(-1));
     nextBtn.addEventListener("click", () => navigateWeek(1));
+    weekTabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => {
+        updateNavButtons();
+      });
+    });
     updateNavButtons();
   }
+  // --- Week navigation buttons logic END ---
 
   // Initial progress calculation
   updateProgress();
 });
 
+// --- Progress bar logic implementation (FIXED!) ---
 function updateProgress() {
-  // Find visible week-card
-  const weekCard = Array.from(document.querySelectorAll(".week-card")).find(
-    (card) => card.style.display !== "none"
+  // Count ALL checkboxes in ALL weeks
+  const checkboxes = document.querySelectorAll(
+    '.checkbox-item input[type="checkbox"]'
   );
-  
-  let checkboxes;
-  if (weekCard) {
-    checkboxes = weekCard.querySelectorAll('.checkbox-item input[type="checkbox"]');
-  } else {
-    checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
-  }
-  
-  const total = checkboxes.length;
+  const total = checkboxes.length; // Should be 196 if all weeks are structured like week 1
   const checked = Array.from(checkboxes).filter((cb) => cb.checked).length;
   const percent = total === 0 ? 0 : Math.round((checked / total) * 100);
 
@@ -190,23 +131,9 @@ function updateProgress() {
   if (bar) {
     bar.style.width = percent + "%";
   }
-  
-  // Store values for translation
-  window.progressData = { percent, checked, total };
-  updateProgressText();
-}
-
-function updateProgressText() {
+  // Update text
   const text = document.getElementById("progress-text");
-  if (!text || !window.progressData) return;
-  
-  const { percent, checked, total } = window.progressData;
-  
-  if (translations[currentLanguage]) {
-    const completeText = translations[currentLanguage].complete_percent?.replace('0%', `${percent}%`) || `${percent}% Complete`;
-    const sessionsText = translations[currentLanguage].sessions?.replace('0/196', `${checked}/${total}`) || `${checked}/${total} sessions`;
-    text.textContent = `${completeText} (${sessionsText})`;
-  } else {
+  if (text) {
     text.textContent = `${percent}% Complete (${checked}/${total} sessions)`;
   }
 }
