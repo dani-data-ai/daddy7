@@ -1,3 +1,48 @@
+// Load translations
+let translations = {};
+let currentLanguage = localStorage.getItem('language') || 'en';
+
+// Load translations from JSON file
+async function loadTranslations() {
+  try {
+    const response = await fetch('translator.json');
+    translations = await response.json();
+    updateLanguage();
+  } catch (error) {
+    console.error('Failed to load translations:', error);
+  }
+}
+
+// Update all translated elements
+function updateLanguage() {
+  const elements = document.querySelectorAll('[data-translate]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-translate');
+    if (translations[currentLanguage] && translations[currentLanguage][key]) {
+      element.textContent = translations[currentLanguage][key];
+    }
+  });
+  
+  // Update document language
+  document.documentElement.lang = currentLanguage;
+  
+  // Update toggle button text
+  const toggleBtn = document.getElementById('lang-toggle');
+  if (toggleBtn) {
+    toggleBtn.textContent = currentLanguage === 'en' ? 'RO' : 'EN';
+  }
+  
+  // Update progress text with current language
+  updateProgress();
+}
+
+// Toggle language function
+function toggleLanguage() {
+  currentLanguage = currentLanguage === 'en' ? 'ro' : 'en';
+  localStorage.setItem('language', currentLanguage);
+  updateLanguage();
+}
+
 function showWeek(event, weekNum) {
   event.preventDefault();
   // Hide all week cards
@@ -34,6 +79,9 @@ function collapseAllDays(context) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Load translations first
+  loadTranslations();
+  
   // Collapse all days at start
   collapseAllDays();
 
@@ -142,9 +190,12 @@ function updateProgress() {
   if (bar) {
     bar.style.width = percent + "%";
   }
-  // Update text
+  
+  // Update text with current language
   const text = document.getElementById("progress-text");
   if (text) {
-    text.textContent = `${percent}% Complete (${checked}/${total} sessions)`;
+    const completeText = translations[currentLanguage]?.complete_percent || `${percent}% Complete`;
+    const sessionsText = translations[currentLanguage]?.sessions || `${checked}/${total} sessions`;
+    text.innerHTML = `${completeText.replace('0%', percent + '%')} (${sessionsText.replace('0/196', `${checked}/${total}`)})`;
   }
 }
