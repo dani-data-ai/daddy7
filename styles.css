@@ -123,6 +123,20 @@ body {
   font-size: 1em;
   margin: 0;
 }
+.day-header.day-complete {
+  background: #2ecc40 !important; /* Green for completed day */
+  color: #fff !important;
+}
+
+.day-header.day-open {
+  background: #0074d9 !important; /* Blue for open/selected day */
+  color: #fff !important;
+}
+
+/* Optional: for smooth transitions */
+.day-header {
+  transition: background 0.2s, color 0.2s;
+}
 
 .card {
   background: #fff;
